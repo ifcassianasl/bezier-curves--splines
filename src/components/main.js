@@ -1,6 +1,10 @@
 import Latex from 'react-latex-next';
-import BezierChart from './bezierChart';
 import dynamic from 'next/dynamic'
+
+const DynamicLinearBezier = dynamic(() => import('./linearBezier'), {
+  loading: () => <p>Carregando...</p>,
+  ssr: false,
+})
 
 const DynamicBezierChart = dynamic(() => import('./bezierChart'), {
   loading: () => <p>Carregando...</p>,
@@ -27,10 +31,11 @@ const Main = () => {
           As curvas de Bezier são definidas por um conjunto de pontos de controle, que são pontos que definem a forma da curva. A curva de Bezier é uma função polinomial que interpola os pontos de controle, e é definida por uma fórmula matemática.
         </p>
       </div>
-      <Latex>$P = P_{0} + t * (P_{1} - P_{0})$</Latex>
-      {/* <DynamicBezierChart/> */}
+  
+      <DynamicLinearBezier/>
     </main>
   )
 } 
 
-export default Main;
+export default Main
+
