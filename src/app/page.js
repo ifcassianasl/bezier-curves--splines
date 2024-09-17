@@ -22,7 +22,7 @@ export default function Home() {
         </div>
         <div className="flex gap-3 items-center">
           <p className="text-md">Disponível em</p>
-          <a href="https://github.com/ifcassianasl/bezier-curves--splines" className="text-white text-4xl">
+          <a href="https://github.com/ifcassianasl/bezier-curves--splines" className="text-white text-4xl" target="_blank">
             <FaGithub />
           </a>
         </div>

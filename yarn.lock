@@ -2012,6 +2012,18 @@ p-locate@^5.0.0:
   dependencies:
     p-limit "^3.0.2"
 
+p5-react@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/p5-react/-/p5-react-1.0.3.tgz#9992acee80896655bc03e6763d6945e754f701d2"
+  integrity sha512-1Xw5Y644lNUOKGq0cx0mfbdy8t0Wb3i+RO59jhFG9uCc5mmUvs8M8zE1LRWWO4PkDmBAIgguc9STjPH97PLrEA==
+  dependencies:
+    p5 "^1.6.0"
+
+p5@^1.6.0:
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/p5/-/p5-1.10.0.tgz#91dd95e7266d943718e565119106cbb419d49e66"
+  integrity sha512-6cWYBFhnZz7jNC6p1VWvlt3QReMqrRSmO90bgECQIKB9oko2w/sKrOAVMyei5tjIzSYcSY0JHy+BRtSAWq24jQ==
+
 package-json-from-dist@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/package-json-from-dist/-/package-json-from-dist-1.0.0.tgz#e501cd3094b278495eb4258d4c9f6d5ac3019f00"
