@@ -1,6 +1,5 @@
 'use client'
 
-import P5 from "p5";
 import Sketch from "p5-react";
 import { useRef } from "react";
 import Latex from 'react-latex-next';
@@ -39,14 +38,14 @@ const LinearBezier = () => {
   };
 
   return (
-    <div className='max-w-prose flex flex-col gap-5'>
+    <div className='flex flex-col gap-5'>
         <h4 className='text-2xl font-bold mb-2'>
           Curva de Bezier Linear
         </h4>
-        <p className='text-lg'>
+        <p>
           É a forma mais simples da curva de Bezier, é definida por dois pontos de controle conectados por uma linha reta que liga esses dois pontos.
         </p>
-        <p className='text-lg'>
+        <p>
           A fórmula da curva de Bezier linear é dada por:
         </p>
         <span className='self-center text-lg'>
@@ -54,17 +53,17 @@ const LinearBezier = () => {
             $P = P_{0} + t \times (P_{1} - P_{0}) =  (1 - t)P_{0} + tP_{1}$
           </Latex>
         </span>
-        <p className='text-lg'>
+        <p>
           com <Latex>$0 \leq t \leq 1$</Latex>.
         </p>
-        <p className='text-lg'>
+        <p>
           Que representa a interpolação linear entre os pontos de controle <Latex>$P_{0}$</Latex> e <Latex>$P_{1}$</Latex>.
           Como representado abaixo com <Latex>$t$</Latex> variando no intervalo de 0.5 nos pontos abaixo da reta.
         </p>
-        <p className='text-lg'>
+        <p>
           Essa interpolação também é chamada de <Latex>$lerp()$</Latex>
         </p>
-        <p className='text-lg'>
+        <p>
           Considerando <Latex>$P_{0}$</Latex> o ponto a esquerda e <Latex>$P_{1}$</Latex> o ponto a direita, temos a seguinte representação:
         </p>
         <span className='self-center text-lg'>
@@ -72,7 +71,10 @@ const LinearBezier = () => {
             $P = lerp(P_{0}, P_{1}, t)$
           </Latex>
         </span>
-        <Sketch setup={setup} sketch={sketch}  />
+
+        <span className='self-center text-lg'>
+          <Sketch setup={setup} sketch={sketch}  />
+        </span>
       </div>   
   );
 
