@@ -1,4 +1,5 @@
 import Latex from 'react-latex-next';
+import BezierChartWithDots from './bezierChartWithDots';
 
 const Derivatives = () => {
   return (
@@ -7,7 +8,7 @@ const Derivatives = () => {
         Derivadas
       </h4>
       <p>
-        As derivadas de uma curva de Bezier são úteis para calcular a tangente à curva em um determinado ponto. Além disso, as derivadas são usadas para calcular a curvatura da curva em um determinado ponto.
+        As derivadas de uma curva de Bezier são úteis para calcular a tangente e a curvatura da curva em um determinado ponto.
       </p> 
       <p>
         Para uma curva de Bezier cúbica, as derivadas são:
@@ -22,6 +23,26 @@ const Derivatives = () => {
             $P&apos;&apos;(t) = P_{0}(-6t+6) + P_{1}(18t-12) + P_{2}(-18t+6) + P_{3}(6t)$
           </Latex>
       </p>
+      <p>
+        A primeira derivada de uma curva de Bezier cúbica é uma curva de Bezier quadrática a segunda derivada é uma curva de Bezier linear e a terceira derivada é uma constante.
+      </p>
+      <p>
+        Com a primeira derivada temos uma forma de calcular a tangente da curva em cada ponto, e assim também é possivel calcular o vetor normal de cada ponto da curva.
+      </p>
+      <p>
+        A primeira derivada pode ser considerada como a velocidade dos pontos da curva e segunda derivada como a aceleração dos pontos da curva.
+      </p>
+      <p>
+        Usando as duas derivadas é possivel calcular a curvatura da curva em um determinado ponto, com a seguinte expressão:
+      </p>
+      <p className='self-center text-lg'>
+          <Latex>
+            $\kappa = det(P&apos;, P&apos;&apos;) / ||P&apos;||^3$
+          </Latex>
+      </p>
+      <span className='self-center text-lg'>
+        <BezierChartWithDots /> 
+      </span>
     </div>
   );
 }

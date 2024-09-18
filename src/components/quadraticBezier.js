@@ -1,5 +1,6 @@
 'use client'
 
+import { quadratic } from "@/utils/utils";
 import Sketch from "p5-react";
 import { useRef } from "react";
 import Latex from 'react-latex-next';
@@ -31,15 +32,10 @@ const QuadraticBezier = () => {
       p5.line(point1.current.x, point1.current.y, point2.current.x, point2.current.y);
 
       for(let t = 0; t <= 1.05; t += 0.05) {
-        const x1 = p5.lerp(point0.current.x, point1.current.x, t);
-        const y1 = p5.lerp(point0.current.y, point1.current.y, t);
-        const x2 = p5.lerp(point1.current.x, point2.current.x, t);
-        const y2 = p5.lerp(point1.current.y, point2.current.y, t);
-        const x = p5.lerp(x1, x2, t);
-        const y = p5.lerp(y1, y2, t);
+        const p = quadratic(p5, point0.current, point1.current, point2.current, t);
         p5.stroke(255, 204, 100);
         p5.strokeWeight(7);
-        p5.point(x, y);
+        p5.point(p.x, p.y);
       }
 
     };

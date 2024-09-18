@@ -14,7 +14,7 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-  title: "Bezier Curves - Splines",
+  title: "Bezier Curves",
   description: "Trabalho final para a disciplina de métodos matemáticos I",
 };
 

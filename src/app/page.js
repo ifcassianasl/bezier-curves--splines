@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)] max-w-[100%]">
       <header className="flex items-center center flex-col w-[100%]">
-        <h1 className="text-3xl font-extrabold">Curvas de Bezier - Splines</h1>
+        <h1 className="text-3xl font-extrabold">Curvas de Bezier</h1>
         <h2 className="text-2xl self-end font-light">Cassiana Silveira</h2>
         <h2 className="text self-end font-thin">Métodos Matemáticos I</h2>
       </header>

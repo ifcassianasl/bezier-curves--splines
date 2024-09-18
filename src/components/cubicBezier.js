@@ -4,6 +4,7 @@ import Sketch from "p5-react";
 import { useCallback, useMemo, memo, useRef } from "react";
 import Latex from 'react-latex-next';
 import BezierChart from "./bezierChart";
+import { cubic } from "@/utils/utils";
 
 const CubicBezier = () => {
   const point0 = useRef(null)
@@ -36,21 +37,10 @@ const CubicBezier = () => {
       p5.line(point2.current.x, point2.current.y, point3.current.x, point3.current.y);
 
       for(let t = 0; t <= 1.05; t += 0.05) {
-        const x1 = p5.lerp(point0.current.x, point1.current.x, t);
-        const y1 = p5.lerp(point0.current.y, point1.current.y, t);
-        const x2 = p5.lerp(point1.current.x, point2.current.x, t);
-        const y2 = p5.lerp(point1.current.y, point2.current.y, t);
-        const x3 = p5.lerp(point2.current.x, point3.current.x, t);
-        const y3 = p5.lerp(point2.current.y, point3.current.y, t);
-        const x4 = p5.lerp(x1, x2, t);
-        const y4 = p5.lerp(y1, y2, t);
-        const x5 = p5.lerp(x2, x3, t);
-        const y5 = p5.lerp(y2, y3, t);
-        const x = p5.lerp(x4, x5, t);
-        const y = p5.lerp(y4, y5, t);
+        const p = cubic(p5, point0.current, point1.current, point2.current, point3.current, t);
         p5.stroke(255, 204, 100);
         p5.strokeWeight(7);
-        p5.point(x, y);
+        p5.point(p.x, p.y);
       }
 
     };
