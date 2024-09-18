@@ -12,13 +12,18 @@ const DynamicQuadraticBezier = dynamic(() => import('./quadraticBezier'), {
   ssr: false,
 })
 
+const DynamicCubicBezier = dynamic(() => import('./cubicBezier'), {
+  loading: () => <p>Carregando...</p>,
+  ssr: false,
+})
+
 const Main = () => {
   return (
-    <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start text-lg max-w-prose">
+    <main className="flex flex-col gap-8 items-center text-lg max-w-prose">
       <BasicHistory/>
-  
       <DynamicLinearBezier/>
       <DynamicQuadraticBezier/>
+      <DynamicCubicBezier/>
     </main>
   )
 } 
