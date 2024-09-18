@@ -4,17 +4,21 @@ import { quadratic } from "@/utils/utils";
 import Sketch from "p5-react";
 import { useRef } from "react";
 import Latex from 'react-latex-next';
+import { windowWidth } from "../utils/utils";
 
 const QuadraticBezier = () => {
   const point0 = useRef(null)
   const point1 = useRef(null)
   const point2 = useRef(null)
+
+  const width = windowWidth()
+  const vector = width >= 600 ? 575 : 575/2
   
   const setup = (p5, canvasRef) => {
-    p5.createCanvas(600, 350).parent(canvasRef);
-    point0.current = p5.createVector(25, 300);
-    point1.current = p5.createVector(300, 25);
-    point2.current = p5.createVector(575, 300);
+    p5.createCanvas(width, 350).parent(canvasRef);
+    point0.current = p5.createVector(25, width/2);
+    point1.current = p5.createVector(width/2, 25);
+    point2.current = p5.createVector(vector, width/2);
   };
   
   const sketch = (p5) => {
@@ -43,7 +47,7 @@ const QuadraticBezier = () => {
 
 
   return (
-    <div className='flex flex-col gap-5'>
+    <div className='flex flex-col gap-5 w-[100%]'>
       <h4 className='text-2xl font-bold mb-2'>
         Curva de Bezier Quadrática
       </h4>

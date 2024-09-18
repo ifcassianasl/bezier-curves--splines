@@ -4,21 +4,25 @@ import Sketch from "p5-react";
 import { useCallback, useMemo, memo, useRef } from "react";
 import Latex from 'react-latex-next';
 import BezierChart from "./bezierChart";
-import { cubic } from "@/utils/utils";
+import { cubic, windowWidth } from "@/utils/utils";
 
 const CubicBezier = () => {
   const point0 = useRef(null)
   const point1 = useRef(null)
   const point2 = useRef(null)
   const point3 = useRef(null)
+
+  const width = windowWidth()
+  const vector = width >= 600 ? 575 : 575/2
+  const vector2 = width >= 600 ? 500 : 250
   
   const setup = useCallback((p5, canvasRef) => {
-    p5.createCanvas(600, 350).parent(canvasRef);
-    point0.current = p5.createVector(25, 300);
+    p5.createCanvas(width, 350).parent(canvasRef);
+    point0.current = p5.createVector(25, width/2);
     point1.current = p5.createVector(100, 25);
-    point2.current = p5.createVector(500, 25);
-    point3.current = p5.createVector(575, 300);
-  }, []);
+    point2.current = p5.createVector(vector2, 25);
+    point3.current = p5.createVector(vector, width/2);
+  }, [vector, vector2, width]);
   
   const sketch = useRef(function sketch (p5) {
     p5.draw = () => {
@@ -49,7 +53,7 @@ const CubicBezier = () => {
 
 
   return (
-    <div className='flex flex-col gap-5'>
+    <div className='flex flex-col gap-5  w-[100%]'>
       <h4 className='text-2xl font-bold mb-2'>
         Curva de Bezier Cubica
       </h4>

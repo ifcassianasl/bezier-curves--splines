@@ -3,15 +3,19 @@
 import Sketch from "p5-react";
 import { useRef } from "react";
 import Latex from 'react-latex-next';
+import { windowWidth } from "../utils/utils";
 
 const LinearBezier = () => {
   const point0 = useRef(null)
   const point1 = useRef(null)
+
+  const width = windowWidth()
+  const vector = width >= 600 ? 550 : 250
   
   const setup = (p5, canvasRef) => {
-    p5.createCanvas(600, 300).parent(canvasRef);
+    p5.createCanvas(width, 300).parent(canvasRef);
     point0.current = p5.createVector(50, 100);
-    point1.current = p5.createVector(550, 100);
+    point1.current = p5.createVector(vector, 100);
   };
   
   const sketch = (p5) => {
@@ -38,7 +42,7 @@ const LinearBezier = () => {
   };
 
   return (
-    <div className='flex flex-col gap-5'>
+    <div className='flex flex-col gap-5 w-[100%]'>
         <h4 className='text-2xl font-bold mb-2'>
           Curva de Bezier Linear
         </h4>

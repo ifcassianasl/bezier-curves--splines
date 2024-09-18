@@ -23,7 +23,7 @@ const Derivatives = dynamic(() => import('./derivatives'), {
 
 const Main = () => {
   return (
-    <main className="flex flex-col gap-8 items-center text-lg max-w-prose">
+    <main className="flex flex-col gap-8 items-center text-lg lg:max-w-prose max-w-[100%]">
       <BasicHistory/>
       <LinearBezier/>
       <QuadraticBezier/>

@@ -4,6 +4,7 @@ import { cubic } from "@/utils/utils";
 import P5 from "p5";
 import Sketch from "p5-react";
 import { useRef } from "react";
+import { windowWidth } from "../utils/utils";
 
 const BezierChartWithDots = () => {
   const point0 = useRef(null)
@@ -11,12 +12,16 @@ const BezierChartWithDots = () => {
   const point2 = useRef(null)
   const point3 = useRef(null)
 
+  const width = windowWidth()
+  const vector = width >= 600 ? 575 : 575/2
+  const vector2 = width >= 600 ? 400 : 200
+
   const setup = (p5, canvasRef) => {
-    p5.createCanvas(600, 600).parent(canvasRef);
+    p5.createCanvas(width, 600).parent(canvasRef);
     point0.current = p5.createVector(25, 300);
     point1.current = p5.createVector(100, 25);
-    point2.current = p5.createVector(400, 200);
-    point3.current = p5.createVector(575, 300);
+    point2.current = p5.createVector(vector2, 200);
+    point3.current = p5.createVector(vector, 300);
   };
   
   const sketch = (p5) => {
