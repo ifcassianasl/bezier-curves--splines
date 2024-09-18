@@ -18,7 +18,5 @@ export function quadratic(p5, p0, p1, p2, t) {
 }
 
 export function windowWidth() {
-  let width = window.screen.width;
-  if(width <= 600) width = 300
-  return width;
+  return window.screen.width > 600 ? 600 : 300
 }
