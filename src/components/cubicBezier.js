@@ -104,6 +104,14 @@ const CubicBezier = () => {
             $P = (1 - t)^3P_{0} + 3(1 - t)^2tP_{1} + 3(1 - t)t^2P_{2} + t^3P_{3}$
           </Latex>
       </span>
+      <p>
+        Ou, isolando cada ponto:
+      </p>
+      <span className='self-center text-lg'>
+          <Latex>
+            $P = P_{0}(-t^3+3t^2-3t-1) + P_{1}(3t^3-6t^2+3t) + P_{2}(-3t^3+3t^2) + P_{3}(t^3)$
+          </Latex>
+      </span>
 
       <span className='self-center text-lg'>
         <Sketch setup={setup} sketch={sketch.current}  />

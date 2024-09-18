@@ -1,6 +1,6 @@
-import Latex from 'react-latex-next';
 import dynamic from 'next/dynamic'
 import BasicHistory from './basicHistory'
+import Derivatives from './derivatives'
 
 const DynamicLinearBezier = dynamic(() => import('./linearBezier'), {
   loading: () => <p>Carregando...</p>,
@@ -24,6 +24,7 @@ const Main = () => {
       <DynamicLinearBezier/>
       <DynamicQuadraticBezier/>
       <DynamicCubicBezier/>
+      <Derivatives />
     </main>
   )
 } 
